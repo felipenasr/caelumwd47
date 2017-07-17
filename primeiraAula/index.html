@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Formas de Carregamento</title>
+  </head>
+  <body onload="console.log('javascript inline. não é boa prática');">
+    <h1>Formas de Carregamento</h1>
+    <p>Para melhorar a performace do carregamento do site, o ideal é que quando chamarmos o arquivo external pelo script, utilizarmos ele com com o atributo <b>'async'</b> ou <b>'defer'</b>.</p>
+
+    <script type="text/javascript">
+        console.log('javascript embed na página');
+    </script>
+    <script type="text/javascript" src="intro.js" async></script>
+  </body>
+</html>
