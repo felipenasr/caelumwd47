@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Aula 2</title>
+    <style media="screen">
+      *{font-family: sans-serif;}
+      code {font-family: monospace;}
+    </style>
+  </head>
+  <body>
+
+    <h1>Funções</h1>
+
+    <p>Existe um padrão de escrita de funções dentro do universo <b>JavaScript</b></p>
+
+    <p>O primeiro padrão é o expressão de função nomeada. Este é o padrão mais simples e o mais comum dentro do universo <b>JS</b></p>
+
+    <code>
+      function saudacao(){<br>
+        &nbsp;&nbsp;&nbsp;var msg = "Boa Noite";<br>
+        &nbsp;&nbsp;&nbsp;console.log(msg);<br>
+      }
+    </code>
+
+    <br>
+    <p>O segundo padrão é a <b>Expressão de Função Anonima</b>.</p>
+    <p>Quando se trabalha com uma função anomina, obrigatoriamente devemos atribuila a um valor dentro do nosso código</p>
+
+    <code>
+      var mensagem = function () {<br>
+        &nbsp;&nbsp;&nbsp;const msg = 'Boa Noite!';<br>
+        &nbsp;&nbsp;&nbsp;console.log(msg);<br>
+      }
+    </code>
+
+    <p><i>Macetes da linguagem</i></p>
+
+    <p>Podemos utilizar o conector lógico <b>OR -> ( || )</b>, para fazermos uma 'validação' dentro do código, sem que precisar utilizar <b>IF/ELSE</b>. Exemplo:</p>
+    <code>
+      let soma = function (a) {<br>
+        &nbsp;&nbsp;&nbsp;return a || 0; <br>
+      }
+
+    </code>
+
+
+    <script type="text/javascript" src="funcoes.js"></script>
+  </body>
+</html>
