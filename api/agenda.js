@@ -12,11 +12,15 @@
 (function () {
   // user interface
   var ui = {
-    fields: null,
-    button: null,
-    list: null
+    fields: document.querySelectorAll('input'),
+    button: document.querySelector('.pure-button'),
+    list: document.querySelector('.pure-table')
   };
-  console.log(ui);
+  // declarando as ações do sistema!
 
+  var valideFields = function () {
+    var storeData = function () {};
+    var listAll = function () {}
+  }
 
 })();
