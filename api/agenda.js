@@ -33,15 +33,20 @@
         data[field.id] = field.value;
       }
 
-      if(erros > 0){
-        document.querySelector('.error').focus();
-      }else{
-        storeData(data);
-      }
-      console.log(erros,data);
     });
+    if(erros > 0){
+      document.querySelector('.error').focus();
+    }else{
+      storeData(data);
+    }
   }
-  var storeData = function () {};
+  var storeData = function (data) {
+    // gravando dados no localStorage!
+    var list = (localStorage.schedule)?JSON.parse(localStorage.schedule):[];
+    list.push(data);
+    localStorage.schedule = JSON.stringify(list);
+    console.log(JSON.parse(localStorage.schedule));
+  };
   var listAll = function () {};
 
 
