@@ -24,7 +24,6 @@
     var erros = 0;
     var data = {};
     ui.fields.forEach(function (field) {
-      console.log(field.value.length);
       if(field.value.trim().length===0){
         field.classList.add("error");
         erros++;
@@ -45,8 +44,11 @@
     var list = (localStorage.schedule)?JSON.parse(localStorage.schedule):[];
     list.push(data);
     localStorage.schedule = JSON.stringify(list);
-    console.log(JSON.parse(localStorage.schedule));
+    cleanFields();
+    listAll();
   };
+  var cleanFields = ()=> ui.fields.forEach(field =>field.value = '');
+  }
   var listAll = function () {};
 
 
