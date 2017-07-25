@@ -49,9 +49,15 @@
   };
   var cleanFields = () => ui.fields.forEach(field =>field.value = '');
   var listAll = function () {
-    if (localStorage && localStorage.schedule) {
+    var html = [];
+    if(localStorage.schedule=='[]'){
+      var line = `<tr>
+                    <td colspan="5">Não existem dados registrados!</td>
+                  </tr>`;
+      html.push(line);
+      ui.list.innerHTML = html.join("");
+    }else if (localStorage && localStorage.schedule) {
       var contacts = JSON.parse(localStorage.schedule);
-      var html = [];
       // console.table(contacts);
       contacts.forEach((contact, key)=>{
           // template string. ES6
