@@ -33,14 +33,18 @@
       }
 
     });
+
+
     if(erros > 0){
       document.querySelector('.error').focus();
     }else{
       storeData(data);
     }
+
   }
   var storeData = function (data) {
     // gravando dados no localStorage!
+
     var list = (localStorage.schedule)?JSON.parse(localStorage.schedule):[];
     list.push(data);
     localStorage.schedule = JSON.stringify(list);
@@ -48,8 +52,10 @@
     listAll();
   };
   var cleanFields = () => ui.fields.forEach(field =>field.value = '');
+  
   var listAll = function () {
     var html = [];
+    
     if(localStorage.schedule=='[]'){
       var line = `<tr>
                     <td colspan="5">Não existem dados registrados!</td>
@@ -81,7 +87,6 @@
     e.preventDefault();
     var context = e.target.dataset;
     if(context.action == "delete"){
-      console.log('sucesso', context.id);
       var contacts = JSON.parse(localStorage.schedule);
       contacts.splice(context.id, 1);
       localStorage.schedule = JSON.stringify(contacts);
@@ -95,8 +100,10 @@
     // ui.button.onclick = valideFields;
 
     ui.button.addEventListener("click", validateFields);
+
     listAll();
-    ui.list.addEventListener("click", deleteItem)
+    ui.list.addEventListener("click", deleteItem);
+
 
 
   }();
