@@ -14,7 +14,7 @@
   var ui = {
     fields: document.querySelectorAll('input'),
     button: document.querySelector('.pure-button'),
-    list: document.querySelector('.pure-table')
+    list: document.querySelector('tbody')
   };
   // declarando as ações do sistema!
 
@@ -45,11 +45,31 @@
     list.push(data);
     localStorage.schedule = JSON.stringify(list);
     cleanFields();
-    listAll();
+    // listAll();
   };
-  var cleanFields = ()=> ui.fields.forEach(field =>field.value = '');
-  }
-  var listAll = function () {};
+  var cleanFields = () => ui.fields.forEach(field =>field.value = '');
+  var listAll = function () {
+    if (localStorage && localStorage.schedule) {
+      var contacts = JSON.parse(localStorage.schedule);
+      var html = [];
+      // console.table(contacts);
+      contacts.forEach((contact, key)=>{
+          // template string. ES6
+          var line = `
+                      <tr>
+                        <td>${key}</td>
+                        <td>${contact.name}</td>
+                        <td>${contact.email}</td>
+                        <td>${contact.telefone}</td>
+                        <td><a href="#" data-action="delete" data-id="${key}">Excluir</a></td>
+                      </tr>
+                      `;
+          html.push(line);
+      });
+      console.log(html.join(''));
+      ui.list.innerHTML = html.join("");
+    }
+  };
 
 
   var init = function () {
@@ -58,6 +78,7 @@
     // ui.button.onclick = valideFields;
 
     ui.button.addEventListener("click", validateFields);
+    listAll();
 
 
   }();
