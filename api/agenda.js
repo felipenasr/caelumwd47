@@ -45,7 +45,7 @@
     list.push(data);
     localStorage.schedule = JSON.stringify(list);
     cleanFields();
-    // listAll();
+    listAll();
   };
   var cleanFields = () => ui.fields.forEach(field =>field.value = '');
   var listAll = function () {
@@ -66,11 +66,22 @@
                       `;
           html.push(line);
       });
-      console.log(html.join(''));
+      // console.log(html.join(''));
       ui.list.innerHTML = html.join("");
     }
   };
 
+  var deleteItem = function(e){
+    e.preventDefault();
+    var context = e.target.dataset;
+    if(context.action == "delete"){
+      console.log('sucesso', context.id);
+      var contacts = JSON.parse(localStorage.schedule);
+      contacts.splice(context.id, 1);
+      localStorage.schedule = JSON.stringify(contacts);
+      listAll();
+    }
+  }
 
   var init = function () {
     // maping events (mapeando os eventos do nosso app) Evento é uma ação disparada pelo usuário!
@@ -79,6 +90,7 @@
 
     ui.button.addEventListener("click", validateFields);
     listAll();
+    ui.list.addEventListener("click", deleteItem)
 
 
   }();
