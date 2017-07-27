@@ -21,5 +21,4 @@ Conta.prototype.transfere = function (valor, contaDestino) {
   contaDestino.depositar(valor);
 };
 
-
 console.log(contaZe);
